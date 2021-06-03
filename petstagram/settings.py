@@ -22,6 +22,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# Saved into secret_key.py which is gitignored
 # 'django-insecure-n(tqmv@3q7m61p1^4f12bv&$4=27x5d=^)(5&261=c_sb59z=3'
 SECRET_KEY = SECRET_KEY_GITIGNORE
 
