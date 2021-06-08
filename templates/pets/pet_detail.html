@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Petstagram</title>
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom:2%">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -19,7 +21,7 @@
         <ul class="navbar-nav">
             <a class="nav-link" href="/">Home</a>
             <li class="nav-item">
-                <a class="nav-link" href={% url "pet all" %}>All Pet Photos</a>
+                <a class="nav-link" href="{% url 'pet all' %}">All Pet Photos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Login</a>
@@ -31,27 +33,19 @@
     </div>
 </nav>
 <div class="container">
-    <div class="jumbotron parent">
-        <img style="width: 100%"
-             src="https://activepets.co.za/web/ap-content/uploads/2019/08/Active-pets-dogs-and-cats.png" alt="">
-        <div class="absolute">
-            <h1 class="display-4">Welcome to Petstagram</h1>
-            <p class="lead">Share your pets photos.</p>
-            <hr class="my-4">
-            <div class="inner cover">
-                <h1 class="cover-heading"></h1>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <p class="lead">Already have an account? <br><a href="#" class="btn btn-lg btn-secondary">sign
-                            in</a></p>
-                    </div>
-                    <div class="col-lg-6">
-                        <p class="lead"> Do not have an account? <br>
-                            <a href="#" class="btn btn-lg btn-secondary">sign up</a>
-                        </p>
-                    </div>
-                </div>
+    <div class="d-flex">
+        <div class="d-inline p-2 w-50">
+            <img src="{{ pet.image_url }}" class="w-50 rounded mx-auto d-block">
+        </div>
+        <div class="d-inline p-2 w-50">
+            <div class="d-flex justify-content-between">
+                <h5><u>Type:</u> {{ pet.type }}</h5>
+                <h5><u>Name:</u> {{ pet.name }}</h5>
+                <h5><u>Age:</u> {{ pet.age }}</h5>
             </div>
+            <p class="mt-2">Description: {{ pet.description }}</p>
+            <a href="{% url "pet like" pet.id %}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+            <p class="mt-2">Likes: {{ pet.likes_count }}</p>
         </div>
     </div>
 </div>
